@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".presentation.fragmentdetail.FragmentDetail">
 
-
-
     <ImageView
         android:id="@+id/iv_img_menu_detail"
         android:layout_width="250dp"
