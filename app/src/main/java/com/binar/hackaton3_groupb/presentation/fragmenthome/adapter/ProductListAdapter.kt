@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.binar.hackaton3_groupb.databinding.ItemListProductBinding
+import com.binar.hackaton3_groupb.model.Product
 
 class ProductListAdapter (private val onItemClick: (Product) -> Unit) : RecyclerView.Adapter<ProductListViewHolder>(){
 
@@ -48,13 +50,13 @@ class ProductListAdapter (private val onItemClick: (Product) -> Unit) : Recycler
 class ProductListViewHolder(
     private val binding : ItemListProductBinding,
     private val onItemClick: (Product) -> Unit
-) : RecyclerView.ViewHolder(bidning.root){
+) : RecyclerView.ViewHolder(binding.root){
     fun bind(product: Product){
         with(binding) {
             ivProductImage.load(product.imageUrl)
             tvProductName.text = product.name
             tvProductPrice.text = product.price.toString()
-            tvProductWeight.text = product.weight.toString()
+            tvProductWeight.text = product.weightInKg.toString()
             root.setOnClickListener {
                 onItemClick(product)
             }
