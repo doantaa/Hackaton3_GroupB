@@ -8,10 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.binar.hackaton3_groupb.R
-import com.binar.hackaton3_groupb.data.ProductDataSourceImpl
-import com.binar.hackaton3_groupb.databinding.FragmentHomeBinding
-import com.binar.hackaton3_groupb.model.Product
-import com.binar.hackaton3_groupb.presentation.fragmenthome.adapter.ProductListAdapter
 
 class FragmentHome : Fragment() {
 
