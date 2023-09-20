@@ -1,78 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_host_fragment"
+    android:name="androidx.navigation.fragment.NavHostFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragmenthome.FragmentHome">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="24dp"
-        android:paddingTop="19dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tv_deliver_to"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Deliver to"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/cl_header"
-            app:layout_constraintTop_toTopOf="@id/cl_header" />
-
-
-        <ImageView
-            android:id="@+id/iv_plane_header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_plane"
-            app:layout_constraintStart_toStartOf="@id/tv_deliver_to"
-            app:layout_constraintTop_toBottomOf="@id/tv_deliver_to" />
-
-        <TextView
-            android:id="@+id/tv_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="4dp"
-            android:text="Jalan Depok Timur"
-            app:layout_constraintBottom_toBottomOf="@id/iv_plane_header"
-            app:layout_constraintStart_toEndOf="@id/iv_plane_header"
-            app:layout_constraintTop_toTopOf="@id/iv_plane_header" />
-
-        <ImageView
-            android:id="@+id/iv_user_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/tv_deliver_to"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/tv_address"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_user_circle"
-            />
-
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/banner"
-        app:layout_constraintTop_toBottomOf="@id/cl_header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="18dp"
-        />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/main_nav_graph"
+    tools:context=".MainActivity" />
