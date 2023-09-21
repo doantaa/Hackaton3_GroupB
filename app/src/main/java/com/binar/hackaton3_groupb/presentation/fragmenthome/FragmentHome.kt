@@ -31,7 +31,7 @@ class FragmentHome : Fragment() {
 
     private fun navigateToFragmentDetailMenu(product: Product) {
 
-        val action = FragmentHomeDirections.navigateToFragmentDetail(product)
+        val action = FragmentHomeDirections.actionFragmentHome2ToFragmentDetail(product)
         findNavController().navigate(action)
 
     }
@@ -67,6 +67,4 @@ class FragmentHome : Fragment() {
         adapterProduct.setData(ProductDataSourceImpl().getProductData())
 
     }
-
-
 }

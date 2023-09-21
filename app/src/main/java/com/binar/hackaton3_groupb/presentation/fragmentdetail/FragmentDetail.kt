@@ -14,12 +14,11 @@ import com.binar.hackaton3_groupb.model.Product
 class FragmentDetail : Fragment() {
 
     private lateinit var binding : FragmentDetailBinding
-    private val product: Product? by lazy{
-        FragmentMenuDetailArgs.fromBundle(arguments as Bundle).menu
-    }
 
-    companion object{
-        const val IDR = "IDR"
+    private var count: Int = 1
+
+    private val product: Product? by lazy{
+        FragmentDetailArgs.fromBundle(arguments as Bundle).product
     }
 
     override fun onCreateView(
@@ -29,15 +28,38 @@ class FragmentDetail : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
-
-        binding.icAdd.setOnClickListener(
-
-        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showProfileData()
+        countingClickListener()
+    }
+
+    private fun countingClickListener() {
+        binding.icAdd.setOnClickListener{
+            incrementCount()
+        }
+        binding.icRemove.setOnClickListener{
+            decrementCount()
+        }
+    }
+
+    private fun decrementCount() {
+        count--
+        if(count<=1){
+            count=1;
+        }
+        binding.tvAmount.setText(count.toString())
+        val total = product?.price!! * count
+        binding.tvMenuPrice.setText(getString(R.string.rp, total))
+    }
+
+    private fun incrementCount() {
+        count++
+        binding.tvAmount.setText(count.toString())
+        val total = product?.price!! * count
+        binding.tvMenuPrice.setText(getString(R.string.rp, total))
     }
 
     private fun showProfileData() {
@@ -47,10 +69,7 @@ class FragmentDetail : Fragment() {
             binding.tvSupplierName.text = product?.supplierName
             binding.tvRatings.text = product?.rating.toString()
             binding.tvMenuDesc.text = product?.description
-            binding.tvMenuPrice.text = "$IDR ${product?.price?.toInt() * binding.tvAmount.text.toIn}"
+            binding.tvMenuPrice.setText(getString(R.string.rp, product?.price))
         }
     }
-}
-
-
 }
