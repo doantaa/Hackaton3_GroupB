@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.binar.hackaton3_groupb"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.binar.hackaton3_groupb"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
