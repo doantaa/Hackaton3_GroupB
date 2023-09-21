@@ -45,12 +45,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
                 android:textSize="14sp"
+                android:textColor="@color/sub_text"
                 tools:text="1.82" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="KG"
+                android:textColor="@color/sub_text"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -89,7 +91,7 @@
                 android:id="@+id/cv_basket"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/bg_green"
                 app:cardCornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
