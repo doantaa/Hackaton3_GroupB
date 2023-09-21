@@ -7,10 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.hackaton3_groupb.R
+import com.binar.hackaton3_groupb.data.CategoriesDataSource
+import com.binar.hackaton3_groupb.data.CategoriesDataSourceImpl
 import com.binar.hackaton3_groupb.data.ProductDataSourceImpl
 import com.binar.hackaton3_groupb.databinding.FragmentHomeBinding
+import com.binar.hackaton3_groupb.model.Categories
 import com.binar.hackaton3_groupb.model.Product
+import com.binar.hackaton3_groupb.presentation.fragmenthome.adapter.CategoriesListAdapter
 import com.binar.hackaton3_groupb.presentation.fragmenthome.adapter.ProductListAdapter
 
 class FragmentHome : Fragment() {
@@ -42,8 +47,17 @@ class FragmentHome : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        showListCategories()
         showListProduct()
+    }
+
+    private fun showListCategories() {
+        val categoryListAdapter = CategoriesListAdapter()
+        binding.rvCategories.adapter = categoryListAdapter
+        binding.rvCategories.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        val categoriesDataSource: CategoriesDataSource = CategoriesDataSourceImpl()
+        val categoriesList: List<Categories> = categoriesDataSource.getCategories()
+        categoryListAdapter.setData(categoriesList)
     }
 
     private fun showListProduct() {
