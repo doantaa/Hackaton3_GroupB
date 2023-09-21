@@ -5,7 +5,7 @@
     <string name="text_header">Delivered To</string>
     <string name="text_jalan_depok_timur">Jalan Depok Timur</string>
     <string name="counting">1</string>
-    <string name="rp" formatted="false">Rp. %d</string>
+    <string name="idr" formatted="false">IDR %d</string>
     <string name="buy_now">Buy Now</string>
 
 </resources>

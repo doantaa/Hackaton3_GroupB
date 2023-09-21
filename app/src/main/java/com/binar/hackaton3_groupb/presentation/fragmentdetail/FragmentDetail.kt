@@ -52,14 +52,14 @@ class FragmentDetail : Fragment() {
         }
         binding.tvAmount.setText(count.toString())
         val total = product?.price!! * count
-        binding.tvMenuPrice.setText(getString(R.string.rp, total))
+        binding.tvMenuPrice.setText(getString(R.string.idr, total))
     }
 
     private fun incrementCount() {
         count++
         binding.tvAmount.setText(count.toString())
         val total = product?.price!! * count
-        binding.tvMenuPrice.setText(getString(R.string.rp, total))
+        binding.tvMenuPrice.setText(getString(R.string.idr, total))
     }
 
     private fun showProfileData() {
@@ -69,7 +69,7 @@ class FragmentDetail : Fragment() {
             binding.tvSupplierName.text = product?.supplierName
             binding.tvRatings.text = product?.rating.toString()
             binding.tvMenuDesc.text = product?.description
-            binding.tvMenuPrice.setText(getString(R.string.rp, product?.price))
+            binding.tvMenuPrice.setText(getString(R.string.idr, product?.price))
         }
     }
 }
