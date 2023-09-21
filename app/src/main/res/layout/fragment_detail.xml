@@ -10,11 +10,11 @@
         android:id="@+id/iv_img_menu_detail"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:scaleType="centerCrop"
         android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@id/cl_menu_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
@@ -43,10 +43,11 @@
 
                 <TextView
                     android:id="@+id/tv_menu_name"
-                    style="@style/TextAppearance.Material3.TitleLarge"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/plus_jakarta_sans"
                     android:textColor="@color/black"
+                    android:textSize="26sp"
                     android:textStyle="bold"
                     tools:text="Menu Name" />
 
@@ -55,35 +56,37 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:alpha="0.6"
+                    android:fontFamily="@font/plus_jakarta_sans"
                     android:textColor="@color/black"
                     tools:text="By BlaBlaShop" />
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/view_rounded_corner"
+                android:gravity="center"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:background="@drawable/view_rounded_corner"
                 app:layout_constraintStart_toEndOf="@id/ll_menu_name_and_supplier"
-                app:layout_constraintTop_toTopOf="parent"
-                android:gravity="center"
-                android:id="@+id/ll_rating">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_star"/>
+                    android:src="@drawable/ic_star" />
 
                 <TextView
                     android:id="@+id/tv_ratings"
-                    style="@style/TextAppearance.Material3.TitleMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_jakarta_sans"
                     android:gravity="end|center"
                     android:textColor="@color/black"
+                    android:textSize="18sp"
                     tools:text="4.7" />
 
             </LinearLayout>
@@ -97,10 +100,12 @@
             android:layout_marginTop="10dp"
             android:alpha="0.6"
             android:ellipsize="end"
+            android:fontFamily="@font/plus_jakarta_sans"
             android:justificationMode="inter_word"
             android:maxLines="5"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/cl_menu_name_and_rating"
+            tools:layout_editor_absoluteX="16dp"
             tools:text="@tools:sample/lorem/random" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -113,10 +118,11 @@
 
         <TextView
             android:id="@+id/tv_menu_price"
-            style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/plus_jakarta_sans"
             android:textColor="@color/black"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/ll_amount_controller"
@@ -146,12 +152,13 @@
 
             <TextView
                 android:id="@+id/tv_amount"
-                style="@style/TextAppearance.Material3.TitleLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/plus_jakarta_sans"
                 android:text="@string/counting"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="22sp" />
 
             <ImageButton
                 android:id="@+id/ic_remove"
@@ -162,16 +169,19 @@
 
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_add_to_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_rounded_corner"
+            android:fontFamily="@font/plus_jakarta_sans"
+            android:text="@string/buy_now"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ll_amount_controller"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/buy_now"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
