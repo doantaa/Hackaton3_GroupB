@@ -47,10 +47,10 @@ class FragmentHome : Fragment() {
     }
 
     private fun showListProduct() {
-//        binding.rvProduct.adapter = adapterProduct
-//        binding.rvProduct.layoutManager =
-//            GridLayoutManager(requireContext(), 2 )
-//        adapterProduct.setData(ProductDataSourceImpl().getProductData())
+        binding.rvProduct.adapter = adapterProduct
+        binding.rvProduct.layoutManager =
+            GridLayoutManager(requireContext(), 2 )
+        adapterProduct.setData(ProductDataSourceImpl().getProductData())
 
     }
 
