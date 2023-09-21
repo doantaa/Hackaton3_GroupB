@@ -5,21 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import coil.load
 import com.binar.hackaton3_groupb.R
-import com.binar.hackaton3_groupb.databinding.FragmentDetailBinding
-import com.binar.hackaton3_groupb.model.Product
 
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
+/**
+ * A simple [Fragment] subclass.
+ * Use the [FragmentDetail.newInstance] factory method to
+ * create an instance of this fragment.
+ */
 class FragmentDetail : Fragment() {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
 
-    private lateinit var binding : FragmentDetailBinding
-    private val product: Product? by lazy{
-        FragmentMenuDetailArgs.fromBundle(arguments as Bundle).menu
-    }
-
-    companion object{
-        const val IDR = "IDR"
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
     }
 
     override fun onCreateView(
@@ -27,30 +35,26 @@ class FragmentDetail : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentDetailBinding.inflate(inflater, container, false)
-        return binding.root
-
-        binding.icAdd.setOnClickListener(
-
-        )
+        return inflater.inflate(R.layout.fragment_detail, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        showProfileData()
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment FragmentDetail.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            FragmentDetail().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
     }
-
-    private fun showProfileData() {
-        if(product != null){
-            binding.ivImgMenuDetail.load(product?.imageUrl)
-            binding.tvMenuName.text = product?.name
-            binding.tvSupplierName.text = product?.supplierName
-            binding.tvRatings.text = product?.rating.toString()
-            binding.tvMenuDesc.text = product?.description
-            binding.tvMenuPrice.text = "$IDR ${product?.price?.toInt() * binding.tvAmount.text.toIn}"
-        }
-    }
-}
-
-
 }

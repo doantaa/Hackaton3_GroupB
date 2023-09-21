@@ -11,12 +11,18 @@
         android:label="activity_main"
         tools:layout="@layout/activity_main" >
         <action
-            android:id="@+id/action_fragmentHome2_to_fragmentDetail"
+            android:id="@+id/navigate_to_fragment_detail"
             app:destination="@id/fragmentDetail" />
     </fragment>
     <fragment
         android:id="@+id/fragmentDetail"
         android:name="com.binar.hackaton3_groupb.presentation.fragmentdetail.FragmentDetail"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="person"
+            app:argType="com.binar.hackaton3_groupb.model.Product"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>
