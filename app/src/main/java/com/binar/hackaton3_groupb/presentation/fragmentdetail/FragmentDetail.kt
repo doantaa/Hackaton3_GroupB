@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.navigation.NavHostController
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.binar.hackaton3_groupb.R
 import com.binar.hackaton3_groupb.databinding.FragmentDetailBinding
@@ -34,6 +37,13 @@ class FragmentDetail : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         showProfileData()
         countingClickListener()
+        backToPrevious()
+    }
+
+    private fun backToPrevious() {
+        binding.ibArrowBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun countingClickListener() {
